@@ -1,6 +1,3 @@
-import {
-    Integer
-} from '../../platforms/android/app/src/main/assets/app/tns_modules/json-schema/lib/validate';
 
 
 <template>
@@ -136,8 +133,8 @@ export default {
         if (!result) {
           return;
         } else {
-          this.qns[state].savedState="Hksaad";
-          console.log(this.qns[state].savedState)
+          this.qns[this.state].savedState="Hksaad";
+          console.log(this.qns[this.state].savedState)
           if (this.name == this.answer) {
             (this.msg = "Correct"), (this.isCorect = true);
             this.isIncorrect = false;
@@ -159,16 +156,16 @@ export default {
 
      this.state = ++this.qnNO;
       console.log(this.qnNO >= this.qns.length - 1);
-      this.qn = this.qns[state].qn;
-      this.answer = this.qns[state].answer;
-      this.source = this.qns[state].options;
-      if (this.qns[state].attempted) {
+      this.qn = this.qns[this.state].qn;
+      this.answer = this.qns[this.state].answer;
+      this.source = this.qns[this.state].options;
+      if (this.qns[this.state].attempted) {
         console.log("The qn is already attempted");
-        this.attempted = this.qns[state].attempted;
+        this.attempted = this.qns[this.state].attempted;
         return;
       }
-      this.qns[state].attempted = true;
-      this.attempted = this.qns[state].attempted;
+      this.qns[this.state].attempted = true;
+      this.attempted = this.qns[this.state].attempted;
     }
   }
 };
